@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 160" role="img" aria-labelledby="title desc">
+  <title id="title">Rainbow Story For Kids</title>
+  <desc id="desc">A rainbow above a girl reading, a friendly elephant, a boy, and a teddy bear beside the Rainbow Story For Kids wordmark.</desc>
+
+  <g transform="translate(5 5)" stroke="#27344c" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M12 78a67 67 0 0 1 134 0" fill="none" stroke="#48a9e5" stroke-width="16"/>
+    <path d="M25 78a54 54 0 0 1 108 0" fill="none" stroke="#ff6758" stroke-width="14"/>
+    <path d="M38 78a41 41 0 0 1 82 0" fill="none" stroke="#ffd04f" stroke-width="13"/>
+    <path d="M50 78a29 29 0 0 1 58 0" fill="none" stroke="#72d4a8" stroke-width="12"/>
+    <path d="M61 78a18 18 0 0 1 36 0" fill="none" stroke="#9c7cf4" stroke-width="11"/>
+    <path d="M3 52c4-12 17-13 22-5 8-6 20 0 18 9H3Z" fill="#fff" stroke="#48a9e5" stroke-width="2"/>
+    <path d="M118 52c4-12 17-13 22-5 8-6 20 0 18 9h-40Z" fill="#fff" stroke="#48a9e5" stroke-width="2"/>
+
+    <!-- Girl with orange shirt and red book -->
+    <circle cx="34" cy="88" r="20" fill="#ffd09a" stroke-width="2"/>
+    <path d="M14 87c0-25 34-34 42-10-8-7-15-11-23-10-8 1-14 8-19 20Z" fill="#e3663e" stroke-width="2"/>
+    <path d="M15 83c-7 4-7 18 0 22M53 82c8 5 8 17 0 23" fill="#e3663e" stroke-width="7"/>
+    <circle cx="28" cy="88" r="2" fill="#27344c" stroke="none"/><circle cx="41" cy="88" r="2" fill="#27344c" stroke="none"/>
+    <path d="M28 97c5 4 9 4 13 0" fill="none" stroke-width="2"/>
+    <path d="M18 112c7-9 25-10 33 0l5 28H13Z" fill="#f37b35" stroke-width="2"/>
+    <path d="M15 119c12-4 22-1 32 7l-2 20c-9-7-19-9-30-5Z" fill="#ef4f4f" stroke-width="2"/>
+    <path d="M47 126c8-5 15-6 21-3v20c-7-2-14-1-23 3Z" fill="#ff6758" stroke-width="2"/>
+    <path d="M46 126v20" fill="none" stroke-width="2"/>
+
+    <!-- Friendly gray elephant -->
+    <ellipse cx="78" cy="90" rx="23" ry="24" fill="#abb9c9" stroke-width="2"/>
+    <path d="M59 79c-14 1-19 13-13 22 5 7 13 6 17 1M97 79c14 1 19 13 13 22-5 7-13 6-17 1" fill="#9baabd" stroke-width="2"/>
+    <circle cx="71" cy="87" r="2" fill="#27344c" stroke="none"/><circle cx="85" cy="87" r="2" fill="#27344c" stroke="none"/>
+    <path d="M78 91c-7 8-5 20 2 21 7-2 7-11 1-15" fill="#9baabd" stroke-width="2"/>
+    <path d="M70 99c4 3 9 3 13 0" fill="none" stroke-width="2"/>
+    <path d="M59 110c10-7 29-7 39 0l-2 35H61Z" fill="#aab9c9" stroke-width="2"/>
+    <path d="M68 116c7 5 14 5 21 0" fill="none" stroke-width="2"/>
+
+    <!-- Boy in yellow shirt -->
+    <circle cx="121" cy="88" r="20" fill="#ffd09a" stroke-width="2"/>
+    <path d="M101 85c1-24 34-30 41-7-9-7-16-11-23-10-8 0-14 6-18 17Z" fill="#29344b" stroke-width="2"/>
+    <circle cx="115" cy="88" r="2" fill="#27344c" stroke="none"/><circle cx="128" cy="88" r="2" fill="#27344c" stroke="none"/>
+    <path d="M115 97c5 4 9 4 13 0" fill="none" stroke-width="2"/>
+    <path d="M103 112c8-9 27-9 35 1l3 32h-41Z" fill="#ffd04f" stroke-width="2"/>
+    <path d="M110 119h20M119 119v14" fill="none" stroke="#ef7841" stroke-width="2"/>
+
+    <!-- Teddy bear -->
+    <circle cx="149" cy="112" r="6" fill="#a96935" stroke-width="2"/><circle cx="168" cy="112" r="6" fill="#a96935" stroke-width="2"/>
+    <circle cx="158" cy="121" r="13" fill="#b9793b" stroke-width="2"/>
+    <ellipse cx="158" cy="132" rx="8" ry="6" fill="#e5ab64" stroke-width="1.5"/>
+    <circle cx="153" cy="120" r="1.8" fill="#27344c" stroke="none"/><circle cx="163" cy="120" r="1.8" fill="#27344c" stroke="none"/>
+    <path d="M158 126c3 0 4 3 0 4-4-1-3-4 0-4Z" fill="#27344c" stroke="none"/>
+    <ellipse cx="158" cy="145" rx="13" ry="15" fill="#b9793b" stroke-width="2"/>
+  </g>
+
+  <g transform="translate(205 30)">
+    <text x="0" y="48" font-family="Arial Rounded MT Bold, Nunito, sans-serif" font-size="55" font-weight="900" letter-spacing="-2" fill="#27344c">Rainbow</text>
+    <text x="228" y="48" font-family="Arial Rounded MT Bold, Nunito, sans-serif" font-size="55" font-weight="900" letter-spacing="-2" fill="#ff6758">Story</text>
+    <rect x="2" y="66" width="242" height="31" rx="16" fill="#ffd04f"/>
+    <text x="19" y="89" font-family="Arial, sans-serif" font-size="17" font-weight="900" letter-spacing="7" fill="#27344c">FOR KIDS</text>
+    <circle cx="270" cy="81" r="7" fill="#72d4a8"/><circle cx="291" cy="81" r="7" fill="#48a9e5"/><circle cx="312" cy="81" r="7" fill="#9c7cf4"/>
+  </g>
+</svg>
