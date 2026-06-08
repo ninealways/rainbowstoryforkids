@@ -3,7 +3,10 @@ import "./globals.css";
 export const metadata = {
   title: "Rainbow Story For Kids | Learn, Play & Grow",
   description:
-    "A colorful, searchable learning-video library for curious young minds."
+    "A colorful, searchable learning-video library for curious young minds.",
+  icons: {
+    icon: "/icon.svg"
+  }
 };
 
 export default function RootLayout({ children }) {
