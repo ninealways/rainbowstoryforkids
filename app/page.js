@@ -85,7 +85,7 @@ export default function Home() {
     async function refreshVideos() {
       try {
         const [videoResponse, playlistResponse] = await Promise.all([
-          fetch("/api/videos?v=2"),
+          fetch("/api/videos?v=3"),
           fetch("/api/playlists?v=1")
         ]);
         if (!videoResponse.ok) throw new Error("Channel catalogue unavailable");
@@ -243,8 +243,8 @@ export default function Home() {
         <section className="latest-section">
           <button className="latest-card" onClick={() => setActiveVideo(latestVideo)} aria-label={`Play latest lesson: ${latestVideo.title}`}>
             <span className="latest-image">
-              <span className="latest-image-backdrop" style={{ backgroundImage: `url(https://i.ytimg.com/vi/${latestVideo.id}/maxresdefault.jpg)` }}></span>
-              <img src={`https://i.ytimg.com/vi/${latestVideo.id}/maxresdefault.jpg`} alt="" />
+              <span className="latest-image-backdrop" style={{ backgroundImage: `url(https://i.ytimg.com/vi/${latestVideo.id}/hqdefault.jpg)` }}></span>
+              <img src={`https://i.ytimg.com/vi/${latestVideo.id}/hqdefault.jpg`} alt="" />
               <span className="latest-play">▶</span>
             </span>
             <span className="latest-copy">
