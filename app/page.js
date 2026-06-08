@@ -243,8 +243,10 @@ export default function Home() {
         <section className="latest-section">
           <button className="latest-card" onClick={() => setActiveVideo(latestVideo)} aria-label={`Play latest lesson: ${latestVideo.title}`}>
             <span className="latest-image">
-              <span className="latest-image-backdrop" style={{ backgroundImage: `url(https://i.ytimg.com/vi/${latestVideo.id}/hqdefault.jpg)` }}></span>
-              <img src={`https://i.ytimg.com/vi/${latestVideo.id}/hqdefault.jpg`} alt="" />
+              <span className="latest-image-backdrop" style={{ backgroundImage: `url(https://i.ytimg.com/vi/${latestVideo.id}/mqdefault.jpg)` }}></span>
+              <span className="latest-image-frame">
+                <img src={`https://i.ytimg.com/vi/${latestVideo.id}/mqdefault.jpg`} alt="" />
+              </span>
               <span className="latest-play">▶</span>
             </span>
             <span className="latest-copy">
