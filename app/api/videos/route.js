@@ -11,6 +11,8 @@ import {
   getXmlTag
 } from "../../../lib/youtube";
 
+export const dynamic = "force-dynamic";
+
 function parseFeed(xml) {
   return [...xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)]
     .map((match) => {
@@ -40,35 +42,48 @@ function parseFeed(xml) {
 
 export async function GET() {
   try {
-    const [pageResponse, feedResponse] = await Promise.all([
-      fetch(VIDEO_PAGE_URL, { next: { revalidate: 300 } }),
-      fetch(FEED_URL, { next: { revalidate: 300 } })
+    const [feedResult, pageResult] = await Promise.allSettled([
+      fetch(FEED_URL, { cache: "no-store" }),
+      fetch(VIDEO_PAGE_URL, { cache: "no-store" })
     ]);
-    if (!pageResponse.ok) throw new Error(`YouTube videos page returned ${pageResponse.status}`);
 
-    const pageVideos = collectLockups(extractInitialData(await pageResponse.text()), "LOCKUP_CONTENT_TYPE_VIDEO")
-      .filter((video) => video.id && !/\b(live|livestream|streaming)\b/i.test(video.title))
-      .map((video, index) => ({
-        id: video.id,
-        title: video.title,
-        ...categorize(video.title),
-        duration: video.duration || "New",
-        views: cleanViews(video.meta[0]),
-        publishedLabel: video.meta[1] || (index === 0 ? "Just added" : ""),
-        link: `https://www.youtube.com/watch?v=${video.id}`
-      }));
-    const feedVideos = feedResponse.ok ? parseFeed(await feedResponse.text()) : [];
+    const feedResponse = feedResult.status === "fulfilled" ? feedResult.value : null;
+    if (!feedResponse?.ok) throw new Error(`YouTube RSS feed unavailable`);
+    const feedVideos = parseFeed(await feedResponse.text());
+
+    let pageVideos = [];
+    const pageResponse = pageResult.status === "fulfilled" ? pageResult.value : null;
+    if (pageResponse?.ok) {
+      pageVideos = collectLockups(extractInitialData(await pageResponse.text()), "LOCKUP_CONTENT_TYPE_VIDEO")
+        .filter((video) => video.id && !/\b(live|livestream|streaming)\b/i.test(video.title))
+        .map((video, index) => ({
+          id: video.id,
+          title: video.title,
+          ...categorize(video.title),
+          duration: video.duration || "New",
+          views: cleanViews(video.meta[0]),
+          publishedLabel: video.meta[1] || (index === 0 ? "Just added" : ""),
+          link: `https://www.youtube.com/watch?v=${video.id}`,
+          pageIndex: index
+        }));
+    }
 
     const videosById = new Map();
-    pageVideos.forEach((video, index) => videosById.set(video.id, { ...video, pageIndex: index }));
     feedVideos.forEach((video, index) => {
+      videosById.set(video.id, {
+        ...video,
+        pageIndex: index
+      });
+    });
+    pageVideos.forEach((video) => {
       const existing = videosById.get(video.id);
       videosById.set(video.id, {
-        ...existing,
         ...video,
-        duration: existing?.duration || video.duration,
-        views: video.views || existing?.views || "0",
-        pageIndex: existing?.pageIndex ?? 999 + index
+        ...existing,
+        duration: video.duration || existing?.duration || "New",
+        views: existing?.views || video.views || "0",
+        publishedLabel: existing?.publishedLabel || video.publishedLabel,
+        pageIndex: existing?.pageIndex ?? 999 + video.pageIndex
       });
     });
 
@@ -80,7 +95,7 @@ export async function GET() {
     });
 
     return NextResponse.json(videos, {
-      headers: { "Cache-Control": "public, s-maxage=300, stale-while-revalidate=1800" }
+      headers: { "Cache-Control": "no-store, max-age=0" }
     });
   } catch {
     return NextResponse.json([], { status: 503 });

@@ -85,7 +85,7 @@ export default function Home() {
     async function refreshVideos() {
       try {
         const [videoResponse, playlistResponse] = await Promise.all([
-          fetch("/api/videos?v=3"),
+          fetch("/api/videos?v=4", { cache: "no-store" }),
           fetch("/api/playlists?v=1")
         ]);
         if (!videoResponse.ok) throw new Error("Channel catalogue unavailable");
