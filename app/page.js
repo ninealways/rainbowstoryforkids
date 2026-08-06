@@ -183,7 +183,7 @@ export default function Home() {
       </div>
       <header>
         <a className="brand" href="#">
-          <img src="/rainbow-story-logo.svg" alt="Rainbow Story For Kids" />
+          <img src="/rainbow-story-flat-logo.png" alt="Rainbow Story For Kids" />
         </a>
         <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)}>☰</button>
         <nav className={menuOpen ? "open" : ""}>
@@ -367,7 +367,7 @@ export default function Home() {
       </section>
 
       <footer>
-        <a className="brand" href="#"><img src="/rainbow-story-logo.svg" alt="Rainbow Story For Kids" /></a>
+        <a className="brand" href="#"><img src="/rainbow-story-flat-logo.png" alt="Rainbow Story For Kids" /></a>
         <p>Learn something colorful every day.</p>
         <a href="https://www.youtube.com/@RainbowStoryForKids" target="_blank">Visit YouTube Channel ↗</a>
       </footer>
